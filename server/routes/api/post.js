@@ -22,10 +22,19 @@ router.delete('/:id', async (req, res) => {
   await posts.deleteOne({ _id: new mongodb.ObjectId(req.params.id) })
   res.status(200).send()
 })
+//--------------------------------og
+// async function loadPostCollections() {
+//   const client = await mongodb.MongoClient.connect(
+//     'mongodb://localhost:27017/beta'
+//   )
+//   return client.db('beta').collection('posts')
+// }
+//-------------------------------dup
 async function loadPostCollections() {
   const client = await mongodb.MongoClient.connect(
-    'mongodb://localhost:27017/beta'
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/beta'
   )
   return client.db('beta').collection('posts')
 }
+//--------------------------------
 module.exports = router
