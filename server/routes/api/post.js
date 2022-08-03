@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
   const posts = await loadPostCollections()
   await posts.insertOne({
     text: req.body.text,
+    rem: true,
   })
   res.status(200).send()
 })
