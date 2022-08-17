@@ -9,6 +9,7 @@ app.use(express.json())
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/api/routes', posts)
+app.use('/edit/api/routes', posts)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(__dirname + '/public'))

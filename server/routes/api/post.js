@@ -23,6 +23,8 @@ router.delete('/:id', async (req, res) => {
   await posts.deleteOne({ _id: new mongodb.ObjectId(req.params.id) })
   res.status(200).send()
 })
+//
+
 //find
 //========================================
 // router.put('/:id', async (req, res) => {
@@ -83,6 +85,7 @@ async function loadPostCollections() {
   const client = await mongodb.MongoClient.connect(
     'mongodb+srv://root:root@cluster0.aejxtds.mongodb.net/?retryWrites=true&w=majority'
   )
+  // const client = await mongodb.MongoClient.connect('mongodb://localhost:27017')
   return client.db('Beta').collection('Beta')
 }
 //-------------------------------dup
